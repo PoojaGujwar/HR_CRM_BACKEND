@@ -10,6 +10,7 @@ const candidateRoutes = require("./routes/candidateRoute");
 const employeeRoute = require("./routes/employeeRoute");
 const jobRoutes = require("./routes/jobDescription");
 const SECRET_KEY = "your_secret_key";
+require("dotenv").config();
 const port = 4001 || process.env.port;
 const crypto = require("crypto");
 const nodemailer = require("nodemailer");
@@ -32,7 +33,7 @@ app.use(
     optionsSuccessStatus: 200,
   }),
 );
-app.get("/dash", verifyToken, (req, res) => {
+app.get("/dash", (req, res) => {
   console.log("Comome");
   res.send("Hello mysql");
 });
